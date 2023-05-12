@@ -1,0 +1,62 @@
+<div class="col-12">
+  <div class="row m-0" *ngIf="products.length > 0">
+    <div class="h5 mb-3 mt-3">Replica of Kibana</div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 p-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Document</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td class="w-25"> <span class="pill-data">{{product?._source?.order_date | date : 'mediumDate'}} @ {{product?._source?.order_date | date : 'hh:mm:ss'}} </span></td>
+            <td class="w-75">
+              <span class="custom-pill">category:</span>
+              <span class="pill-data">{{product?._source?.category}}</span>
+              <span class="custom-pill">currency:</span>
+              <span class="pill-data">{{product?._source?.currency}}</span>
+              <span class="custom-pill">customer_first_name:</span>
+              <span class="pill-data">{{product?._source?.customer_first_name}}</span>
+              <span class="custom-pill">customer_full_name:</span>
+              <span class="pill-data">{{product?._source?.customer_full_name}}</span>
+              <span class="custom-pill">customer_gender:</span>
+              <span class="pill-data">{{product?._source?.customer_gender}}</span>
+              <span class="custom-pill">customer_id:</span>
+              <span class="pill-data">{{product?._source?.customer_id}}</span>
+              <span class="custom-pill">customer_last_name:</span>
+              <span class="pill-data">{{product?._source?.customer_last_name}}</span>
+              <span class="custom-pill">customer_phone:</span>
+              <span class="pill-data">{{product?._source?.customer_phone}}</span>
+              <span class="custom-pill">day_of_week:</span>
+              <span class="pill-data">{{product?._source?.day_of_week}}</span>
+              <span class="custom-pill">day_of_week_i:</span>
+              <span class="pill-data">{{product?._source?.day_of_week_i}}</span>
+              <span class="custom-pill">email:</span>
+              <span class="pill-data">{{product?._source?.email}}</span>
+              <span class="custom-pill">event.dataset:</span>
+              <span class="pill-data">{{product?._source?.event?.dataset}}</span>
+              <span class="custom-pill">geoip.continent_name:</span>
+              <span class="pill-data">{{product?._source?.geoip?.continent_name}}</span>
+              <span class="custom-pill">geoip.country_iso_code:</span>
+              <span class="pill-data">{{product?._source?.geoip?.country_iso_code}}</span>
+              <span class="custom-pill">geoip.location:</span>
+              <span class="pill-data">{{'{ "coordinates": [ '+ product?._source?.geoip?.location?.lon + ' , ' + product?._source?.geoip?.location?.lat +' ], "type" : "Point" }'}}</span>
+              <span class="custom-pill">manufacturer:</span>
+              <span class="pill-data">{{product?._source?.manufacturer}}</span>
+              <span class="custom-pill">order_date:</span>
+              <span class="pill-data">{{product?._source?.order_date | date : 'mediumDate'}} @ {{product?._source?.order_date | date : 'hh:mm:ss'}}</span>
+              <span class="custom-pill">order_id:</span>
+              <span class="pill-data">{{product?._source?.order_id}}</span>
+              <span class="custom-pill">products._id:</span>
+              <span class="pill-data">
+                <span *ngFor="let prod of product?._source?.products; let last = last; let index = index;">{{prod?._id}} {{last ? '' : ', '}}</span>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
